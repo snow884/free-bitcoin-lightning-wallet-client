@@ -119,18 +119,6 @@ class BlueWalletClient:
 
         res_full.extend(res)
 
-        timestamps = [
-            datetime.utcfromtimestamp(a["timestamp"]).strftime(
-                "%Y-%m-%d %H:%M:%S"
-            )
-            for a in res
-        ]
-
-        if len(timestamps) > 0:
-            print(f"count {len(timestamps)}")
-            print(f"first timestamp {timestamps[0]}")
-            print(f"last timestamp {timestamps[-1]}")
-
         for invoice_data in res_full:
             invoice_data = self.correct_rhash(invoice_data)
 
